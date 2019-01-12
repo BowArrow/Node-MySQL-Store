@@ -9,3 +9,7 @@ List / Show | Show listen items
 Search | Search for a specific item
 quit / q / exit / e | Quits the program
 
+sell format: sell [Seller] [Item] [Price] [Quantity] [Department]
+
+## Video
+
