@@ -70,7 +70,6 @@ function think(arg) {
 }
 
 function preTable(arg) {
-    show("show")
     switch (arg.length) {
         case 1:
             inquirer
@@ -99,7 +98,7 @@ function searchTable(arg) {
     let none = ["none"];
     let qMove = "INSERT INTO solditems SELECT * FROM listeditems WHERE item=?;"
     let qRemove = "DELETE FROM listeditems WHERE item = ?"
-    console.log(arg);
+    // console.log(arg);
     connection.query(select, [arg], function (err, res) {
         if (err) throw err;
         inquirer
@@ -114,7 +113,6 @@ function searchTable(arg) {
                 if (response.confirm) {
                     connection.query(qMove, [arg], function (err, res1) {
                         if (err) throw (err);
-                        show("show")
                     })
                     connection.query(qRemove, [arg], function (err, res2) {
                         if (err) throw (err);
@@ -157,7 +155,7 @@ function exitCode() {
 }
 
 function listItem(arg) {
-    console.log(arg.length);
+    // console.log(arg.length);
     let topics = ["Seller", "Item", "Price", "Quantity", "Department"]
     let insertItem = `INSERT INTO listeditems (seller, item, price, quantity, department) VALUES ('${arg[1]}', '${arg[2]}', ${arg[3]}, ${arg[4]}, '${arg[5]}')`
     var buildItem = `INSERT INTO listeditems (seller, item, price, quantity, department) VALUES (`
@@ -166,7 +164,7 @@ function listItem(arg) {
             askSellInfo(0, topics, buildItem);
             break;
         case 2:
-            console.log("Starting at 1");
+            // console.log("Starting at 1");
             buildItem = checkBuild(1, arg, buildItem);
             askSellInfo(1, topics, buildItem);
             break;
@@ -232,7 +230,7 @@ function askSellInfo(start, arr, query) {
     function askThis(start, arr, query) {
         var q = query;
         var s = start;
-        console.log(start);
+        // console.log(start);
         if (start <= 4) {
         inquirer
             .prompt([
@@ -243,7 +241,7 @@ function askSellInfo(start, arr, query) {
                 }
             ]).then(function (res) {
 
-                console.log(typeof res.info)
+                // console.log(typeof res.info)
                 if(typeof res.info === "string") {
                     q = q + "'" + res.info + "'";
                 } else {
@@ -255,7 +253,7 @@ function askSellInfo(start, arr, query) {
                     q = q + ");"
                 }
                 s += 1;
-                console.log(q)
+                // console.log(q)
                 askSellInfo(s, arr, q);
 
             })

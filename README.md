@@ -13,3 +13,4 @@ sell format: sell [Seller] [Item] [Price] [Quantity] [Department]
 
 ## Video
 
+https://drive.google.com/file/d/1WWAXFVpoY3qdyNImKYfGvwPjPDpXOLyq/view
